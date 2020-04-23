@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Predefined global functions</title>
+</head>
+
+<body>
+    {{index .Words 0}}
+    {{index .Words 1}}
+    {{index .Words 2}}
+    {{index .Words 3}}
+    {{.Lname}}
+    {{.Fname}}
+    {{.Age}}
+    {{index .Numbers 0}}
+    {{index .Numbers 1}}
+    {{index .Numbers 2}}
+    {{index .Numbers 3}}
+    {{index .Numbers 3}}
+
+
+    {{range .Wisdom}}
+    Name: {{.Name}}
+    Motto: {{.Motto}}
+    Admin: {{.Admin}}
+    {{end}}
+
+    {{range .Wisdom}}
+    {{if and .Name .Motto}}
+    Name: {{.Name}}
+    Motto: {{.Motto}}
+    {{end}}
+    {{end}}
+
+    {{if .Words}}
+    {{.Words}}
+    {{end}}
+
+    {{if .Numbers}}
+    {{.Numbers}}
+    {{end}}
+
+    {{if .Lname}}
+    {{.Lname}}
+    {{end}}
+
+    {{if .Wisdom}}
+    {{.Wisdom}}
+    {{end}}
+
+    {{range .NumComp}}
+    Score 1: {{.Score1}}
+    Score 2: {{.Score2}}
+
+    {{ if gt .Score1 .Score2}}
+    Score1 > Score2
+    {{end}}
+
+    {{ if lt .Score1 .Score2}}
+    Score1: {{.Score1}} is less than Score2: {{.Score2}}
+    {{end}}
+
+    {{ if eq .Score1 .Score2}}
+    Score1=Score2
+    {{end}}
+
+    {{ if lt .Score1 10}}
+    Score1 {{.Score1}} is less than 10
+    {{end}}
+
+    {{ if gt .Score1 5}}
+    Score1: {{.Score1}}> 5
+    {{end}}
+    {{end}}
+
+    {{/* Getting Specific Index value from Struct*/}}
+    {{index .NumComp 0}}
+    Score1: {{(index .NumComp 0).Score1}}
+    Score2: {{(index .NumComp 0).Score2}}
+
+    {{index .NumComp 1}}
+    Score1: {{(index .NumComp 1).Score1}}
+    Score2: {{(index .NumComp 1).Score2}}
+
+</body>
+
+</html>

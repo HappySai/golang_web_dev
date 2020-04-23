@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+</head>
+
+<body>
+    {{range .Wisdom}}
+    {{uc .Name}}
+    {{end}}
+
+    {{range .Wisdom}}
+    {{ft .Name}}
+    {{end}}
+
+    {{range .Wisdom}}
+    {{ft .Motto}}
+    {{end}}
+
+    Without date formatting: {{.time}}
+    With date formatting: {{fdateMDY .time}}
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+package main
+
+import (
+	"log"
+	"os"
+	"text/template"
+)
+
+var tpl *template.Template
+
+func init() {
+	tpl = template.Must(template.ParseFiles("index.html"))
+}
+func main() {
+
+	xs := []string{"one", "two", "three", "four"}
+	values := []int{10, 20, 30, 40, 50}
+	data := struct {
+		Words   []string
+		lname   string
+		fname   string
+		age     int
+		numbers []int
+	}{
+		xs,
+		"Sai Prasad",
+		"Pusarla",
+		50,
+		values,
+	}
+
+	err := tpl.Execute(os.Stdout, data)
+	if err != nil {
+		log.Fatalln(err)
+	}
+}
